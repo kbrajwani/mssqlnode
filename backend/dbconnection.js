@@ -31,4 +31,10 @@ var config = {
 
 var dbConn = new sql.ConnectionPool(config);
 
-module.exports=dbConn;
+    dbConn.connect();
+    //6.
+    var request = new sql.Request(dbConn);
+
+
+
+module.exports=request;

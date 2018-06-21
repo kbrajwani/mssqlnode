@@ -6,13 +6,14 @@ var dbConn=require('../dbconnection');
 
 router.post('/',function(req,res,next){
     
-        user.sign_up(req.body,function(err,rows){
+        user.login(req.body,function(err,rows){
            
             if(err){
                 res.json(err);
             }
             else{
                 res.json(rows);
+                console.log(rows);
             }
         });
 });
@@ -45,12 +46,13 @@ router.put('/:id',function(req,res,next){
 
 
 router.get('/',function(req,res,next){
-    console.log("hey");
+    
 
     
 
     user.getalluser(function(err,rows){
         res.json(rows);
+        console.log(rows);
     });
 
 });
